@@ -1,8 +1,8 @@
 function newATG(varargin)
 close all;
 clc;
-
-% 初始化仿真参数和数据结构
+ 
+% 初始化仿真参数和数据结构  
 [bs_position, bs_antennas, beam_width, carrier_freq, wavelength, tx_power_dBm, tx_power, ...
  beam_tracking_delay, sim_time, dt, time_steps, data_rate, comm_distance, ...
  interference_suppression, uav_nums, uav_initial_position, uav_speed, ...
@@ -12,7 +12,7 @@ clc;
 if isempty(bs_position)
     disp('用户取消了输入！');
     return;
-end   
+end    
 
 %% 速度分布选择模块 - 先执行速度模式选择
 % 调用速度分布初始化函数
