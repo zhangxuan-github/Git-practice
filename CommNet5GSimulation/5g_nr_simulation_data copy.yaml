@@ -1,0 +1,1150 @@
+gNBs:
+- id: 1
+  name: gNB_1
+  position:
+    latitude: 40.05184761449144
+    longitude: 116.55034328973046
+  radius: 1258.0110176596095
+  noise_figure: 3.1888937193070284
+  num_transmit_antennas: 64
+  transmit_power: 43.687867584822655
+  carrier_frequency: 4500000000.0
+  channel_bandwidth: 40000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 216
+  slices:
+  - slice_type: mMTC
+    qos_level: 10
+    min_bandwidth_guarantee: 133715
+  - slice_type: URLLC
+    qos_level: 2
+    min_bandwidth_guarantee: 3870216
+  - slice_type: eMBB
+    qos_level: 4
+    min_bandwidth_guarantee: 88232909
+- id: 2
+  name: gNB_2
+  position:
+    latitude: 40.01501285440613
+    longitude: 116.40813511033917
+  radius: 1649.1439288928648
+  noise_figure: 3.582596802265969
+  num_transmit_antennas: 32
+  transmit_power: 38.19969319308349
+  carrier_frequency: 4500000000.0
+  channel_bandwidth: 40000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 216
+  slices:
+  - slice_type: eMBB
+    qos_level: 7
+    min_bandwidth_guarantee: 91452559
+- id: 3
+  name: gNB_3
+  position:
+    latitude: 40.11470293448782
+    longitude: 116.29360569794605
+  radius: 861.5389733915795
+  noise_figure: 2.368851595983225
+  num_transmit_antennas: 64
+  transmit_power: 41.50441166649776
+  carrier_frequency: 4500000000.0
+  channel_bandwidth: 40000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 216
+  slices:
+  - slice_type: Custom
+    qos_level: 4
+    min_bandwidth_guarantee: 18035125
+- id: 4
+  name: gNB_4
+  position:
+    latitude: 40.138181018879
+    longitude: 116.37510088419134
+  radius: 610.8545740064463
+  noise_figure: 4.209889659010367
+  num_transmit_antennas: 64
+  transmit_power: 40.47391342846036
+  carrier_frequency: 1900000000.0
+  channel_bandwidth: 15000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 79
+  slices:
+  - slice_type: URLLC
+    qos_level: 1
+    min_bandwidth_guarantee: 2893417
+  - slice_type: Custom
+    qos_level: 4
+    min_bandwidth_guarantee: 39877668
+  - slice_type: URLLC
+    qos_level: 2
+    min_bandwidth_guarantee: 8595027
+- id: 5
+  name: gNB_5
+  position:
+    latitude: 39.932620656357436
+    longitude: 116.40581050752458
+  radius: 241.78250381535565
+  noise_figure: 4.826758771456369
+  num_transmit_antennas: 2
+  transmit_power: 40.32879898832668
+  carrier_frequency: 1900000000.0
+  channel_bandwidth: 15000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 79
+  slices:
+  - slice_type: Custom
+    qos_level: 3
+    min_bandwidth_guarantee: 36121563
+  - slice_type: eMBB
+    qos_level: 7
+    min_bandwidth_guarantee: 24835286
+- id: 6
+  name: gNB_6
+  position:
+    latitude: 40.074307112867054
+    longitude: 116.31373456048144
+  radius: 415.33754127501584
+  noise_figure: 2.362197816734317
+  num_transmit_antennas: 32
+  transmit_power: 31.69089306643182
+  carrier_frequency: 1900000000.0
+  channel_bandwidth: 15000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 79
+  slices:
+  - slice_type: mMTC
+    qos_level: 8
+    min_bandwidth_guarantee: 4997882
+  - slice_type: URLLC
+    qos_level: 1
+    min_bandwidth_guarantee: 7610788
+  - slice_type: mMTC
+    qos_level: 10
+    min_bandwidth_guarantee: 909120
+- id: 7
+  name: gNB_7
+  position:
+    latitude: 39.898852685295246
+    longitude: 116.45862227614923
+  radius: 1984.450147415839
+  noise_figure: 4.29064252301184
+  num_transmit_antennas: 2
+  transmit_power: 30.839162971783665
+  carrier_frequency: 1900000000.0
+  channel_bandwidth: 15000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 79
+  slices:
+  - slice_type: eMBB
+    qos_level: 6
+    min_bandwidth_guarantee: 14945940
+  - slice_type: eMBB
+    qos_level: 7
+    min_bandwidth_guarantee: 29903912
+  - slice_type: Custom
+    qos_level: 9
+    min_bandwidth_guarantee: 49838823
+- id: 8
+  name: gNB_8
+  position:
+    latitude: 39.948925539904955
+    longitude: 116.50040868023706
+  radius: 966.6187648262253
+  noise_figure: 2.1054936209409565
+  num_transmit_antennas: 64
+  transmit_power: 45.1676386991934
+  carrier_frequency: 4500000000.0
+  channel_bandwidth: 15000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 79
+  slices:
+  - slice_type: Custom
+    qos_level: 1
+    min_bandwidth_guarantee: 17956680
+  - slice_type: Custom
+    qos_level: 8
+    min_bandwidth_guarantee: 33778163
+- id: 9
+  name: gNB_9
+  position:
+    latitude: 40.167005368143876
+    longitude: 116.5391574682982
+  radius: 211.93597240968373
+  noise_figure: 2.8444159561128854
+  num_transmit_antennas: 8
+  transmit_power: 44.34943073399207
+  carrier_frequency: 4500000000.0
+  channel_bandwidth: 15000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 79
+  slices:
+  - slice_type: Custom
+    qos_level: 8
+    min_bandwidth_guarantee: 16290845
+- id: 10
+  name: gNB_10
+  position:
+    latitude: 40.165167309071386
+    longitude: 116.40234199755177
+  radius: 467.73279491149
+  noise_figure: 3.0104471700674105
+  num_transmit_antennas: 16
+  transmit_power: 30.723744029819144
+  carrier_frequency: 26500000000.0
+  channel_bandwidth: 100000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 275
+  slices:
+  - slice_type: URLLC
+    qos_level: 1
+    min_bandwidth_guarantee: 3198085
+- id: 11
+  name: gNB_11
+  position:
+    latitude: 39.89046593824078
+    longitude: 116.35335304691918
+  radius: 1693.0159160230085
+  noise_figure: 2.1601730759495466
+  num_transmit_antennas: 16
+  transmit_power: 32.35328069162199
+  carrier_frequency: 3500000000.0
+  channel_bandwidth: 70000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 275
+  slices:
+  - slice_type: mMTC
+    qos_level: 8
+    min_bandwidth_guarantee: 4683344
+  - slice_type: Custom
+    qos_level: 9
+    min_bandwidth_guarantee: 5908538
+- id: 12
+  name: gNB_12
+  position:
+    latitude: 39.991363672764244
+    longitude: 116.37278448171524
+  radius: 334.33804178648097
+  noise_figure: 2.6610115600783066
+  num_transmit_antennas: 2
+  transmit_power: 37.717759616816366
+  carrier_frequency: 39000000000.0
+  channel_bandwidth: 100000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 275
+  slices:
+  - slice_type: URLLC
+    qos_level: 3
+    min_bandwidth_guarantee: 2453334
+  - slice_type: Custom
+    qos_level: 6
+    min_bandwidth_guarantee: 41042179
+  - slice_type: eMBB
+    qos_level: 5
+    min_bandwidth_guarantee: 13652872
+- id: 13
+  name: gNB_13
+  position:
+    latitude: 40.17851559678202
+    longitude: 116.41652637682829
+  radius: 1638.4746260918928
+  noise_figure: 3.7222725994746826
+  num_transmit_antennas: 64
+  transmit_power: 41.091397400156126
+  carrier_frequency: 4500000000.0
+  channel_bandwidth: 80000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 275
+  slices:
+  - slice_type: mMTC
+    qos_level: 10
+    min_bandwidth_guarantee: 1230017
+  - slice_type: URLLC
+    qos_level: 2
+    min_bandwidth_guarantee: 1129010
+  - slice_type: eMBB
+    qos_level: 4
+    min_bandwidth_guarantee: 76139677
+- id: 14
+  name: gNB_14
+  position:
+    latitude: 39.808330557922595
+    longitude: 116.2015138096043
+  radius: 1098.2004315593754
+  noise_figure: 3.411620112553931
+  num_transmit_antennas: 8
+  transmit_power: 30.58870904035951
+  carrier_frequency: 1800000000.0
+  channel_bandwidth: 30000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 275
+  slices:
+  - slice_type: mMTC
+    qos_level: 8
+    min_bandwidth_guarantee: 405732
+  - slice_type: eMBB
+    qos_level: 4
+    min_bandwidth_guarantee: 37811765
+- id: 15
+  name: gNB_15
+  position:
+    latitude: 40.12896361643785
+    longitude: 116.35320768159158
+  radius: 633.8430420727295
+  noise_figure: 3.0311040878618174
+  num_transmit_antennas: 8
+  transmit_power: 32.778424286745725
+  carrier_frequency: 4500000000.0
+  channel_bandwidth: 80000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 273
+  slices:
+  - slice_type: mMTC
+    qos_level: 8
+    min_bandwidth_guarantee: 4330361
+  - slice_type: URLLC
+    qos_level: 1
+    min_bandwidth_guarantee: 1549455
+UEs:
+- id: 1
+  name: UE_1
+  position:
+    latitude: 39.974684532405
+    longitude: 116.37159216907679
+  noise_figure: 8.779730969184849
+  num_transmit_antennas: 2
+  transmit_power: 17.602603788765066
+  connection_state: 1
+  gnb_node_id: 3
+  business_type: eMBB
+  priority: 7
+  slice_type: Custom
+  mobility_model:
+    speed: 29.689469292426928
+    direction: 113.50235247262925
+- id: 2
+  name: UE_2
+  position:
+    latitude: 40.03464724935594
+    longitude: 116.52510073890414
+  noise_figure: 5.626357894121639
+  num_transmit_antennas: 4
+  transmit_power: 19.550783569925517
+  connection_state: 1
+  gnb_node_id: 3
+  business_type: mMTC
+  priority: 3
+  slice_type: Custom
+  mobility_model:
+    speed: 29.39509740513806
+    direction: 30.928371402547334
+- id: 3
+  name: UE_3
+  position:
+    latitude: 40.00869383259647
+    longitude: 116.20308006861464
+  noise_figure: 5.312471326967938
+  num_transmit_antennas: 1
+  transmit_power: 16.89801772920384
+  connection_state: 1
+  gnb_node_id: 11
+  business_type: mMTC
+  priority: 1
+  slice_type: mMTC
+  mobility_model:
+    speed: 32.34071166937633
+    direction: 237.994998396687
+- id: 4
+  name: UE_4
+  position:
+    latitude: 40.047279463172735
+    longitude: 116.43439213951187
+  noise_figure: 7.768615830631422
+  num_transmit_antennas: 4
+  transmit_power: 22.393846014204502
+  connection_state: 1
+  gnb_node_id: 10
+  business_type: URLLC
+  priority: 6
+  slice_type: URLLC
+  mobility_model:
+    speed: 21.05988038851369
+    direction: 9.745224572283501
+- id: 5
+  name: UE_5
+  position:
+    latitude: 40.035039816705286
+    longitude: 116.36684538470216
+  noise_figure: 6.773052259116278
+  num_transmit_antennas: 4
+  transmit_power: 15.744034451601191
+  connection_state: 1
+  gnb_node_id: 13
+  business_type: Automotive
+  priority: 7
+  slice_type: URLLC
+  mobility_model:
+    speed: 10.434781603225188
+    direction: 98.69610042853255
+- id: 6
+  name: UE_6
+  position:
+    latitude: 40.033269171155624
+    longitude: 116.35751751638773
+  noise_figure: 7.442481010771491
+  num_transmit_antennas: 4
+  transmit_power: 16.605785013773854
+  connection_state: 1
+  gnb_node_id: 5
+  business_type: eMBB
+  priority: 1
+  slice_type: Custom
+  mobility_model:
+    speed: 30.95770584768445
+    direction: 287.7154935612608
+- id: 7
+  name: UE_7
+  position:
+    latitude: 40.16299010203192
+    longitude: 116.31365169776872
+  noise_figure: 8.810264382153042
+  num_transmit_antennas: 2
+  transmit_power: 11.087936937794671
+  connection_state: 1
+  gnb_node_id: 5
+  business_type: URLLC
+  priority: 5
+  slice_type: Custom
+  mobility_model:
+    speed: 17.829728468375322
+    direction: 199.9276259010096
+- id: 8
+  name: UE_8
+  position:
+    latitude: 39.97933268970436
+    longitude: 116.32901152855038
+  noise_figure: 5.140286639554915
+  num_transmit_antennas: 2
+  transmit_power: 22.753222873663027
+  connection_state: 1
+  gnb_node_id: 11
+  business_type: URLLC
+  priority: 9
+  slice_type: Custom
+  mobility_model:
+    speed: 8.38890068803048
+    direction: 285.8161069740277
+- id: 9
+  name: UE_9
+  position:
+    latitude: 39.80506987701202
+    longitude: 116.41295510147222
+  noise_figure: 5.188315249768932
+  num_transmit_antennas: 1
+  transmit_power: 10.554862148178497
+  connection_state: 1
+  gnb_node_id: 9
+  business_type: Industrial
+  priority: 2
+  slice_type: Custom
+  mobility_model:
+    speed: 5.432714611621132
+    direction: 276.76704550810757
+- id: 10
+  name: UE_10
+  position:
+    latitude: 40.13125878983285
+    longitude: 116.509150130443
+  noise_figure: 7.766484494589993
+  num_transmit_antennas: 4
+  transmit_power: 19.074506301074607
+  connection_state: 0
+  gnb_node_id: 6
+  business_type: Entertainment
+  priority: 4
+  slice_type: mMTC
+  mobility_model:
+    speed: 0.16868501321561924
+    direction: 136.8522921787481
+- id: 11
+  name: UE_11
+  position:
+    latitude: 39.81120187071023
+    longitude: 116.37239316786554
+  noise_figure: 5.997996164706727
+  num_transmit_antennas: 2
+  transmit_power: 21.62042623075378
+  connection_state: 1
+  gnb_node_id: 2
+  business_type: Automotive
+  priority: 5
+  slice_type: eMBB
+  mobility_model:
+    speed: 4.29335061908707
+    direction: 320.96921198687556
+- id: 12
+  name: UE_12
+  position:
+    latitude: 40.15641763333628
+    longitude: 116.28553870340717
+  noise_figure: 8.360502900212666
+  num_transmit_antennas: 2
+  transmit_power: 13.189526892134923
+  connection_state: 1
+  gnb_node_id: 7
+  business_type: Industrial
+  priority: 3
+  slice_type: eMBB
+  mobility_model:
+    speed: 14.857837819153122
+    direction: 216.2151375093319
+- id: 13
+  name: UE_13
+  position:
+    latitude: 40.1377475955223
+    longitude: 116.54046903108373
+  noise_figure: 7.55718263026354
+  num_transmit_antennas: 2
+  transmit_power: 13.479569556563142
+  connection_state: 1
+  gnb_node_id: 10
+  business_type: URLLC
+  priority: 9
+  slice_type: URLLC
+  mobility_model:
+    speed: 12.412394736480334
+    direction: 309.24756967227614
+- id: 14
+  name: UE_14
+  position:
+    latitude: 39.82035325577239
+    longitude: 116.44641872458213
+  noise_figure: 8.456389493264197
+  num_transmit_antennas: 2
+  transmit_power: 14.745332234290847
+  connection_state: 1
+  gnb_node_id: 4
+  business_type: mMTC
+  priority: 7
+  slice_type: URLLC
+  mobility_model:
+    speed: 22.073613403267423
+    direction: 40.1241677851787
+- id: 15
+  name: UE_15
+  position:
+    latitude: 40.07936290506012
+    longitude: 116.24767191313175
+  noise_figure: 8.030560947262884
+  num_transmit_antennas: 4
+  transmit_power: 13.926433243256342
+  connection_state: 0
+  gnb_node_id: 7
+  business_type: Entertainment
+  priority: 8
+  slice_type: Custom
+  mobility_model:
+    speed: 31.737304813207395
+    direction: 180.10787824191405
+- id: 16
+  name: UE_16
+  position:
+    latitude: 40.05054613016638
+    longitude: 116.23840465526891
+  noise_figure: 5.192221954364985
+  num_transmit_antennas: 1
+  transmit_power: 10.484645493379888
+  connection_state: 0
+  gnb_node_id: 5
+  business_type: eMBB
+  priority: 4
+  slice_type: Custom
+  mobility_model:
+    speed: 33.02761632666814
+    direction: 350.4370495770626
+- id: 17
+  name: UE_17
+  position:
+    latitude: 40.03381568663569
+    longitude: 116.34271018365862
+  noise_figure: 7.791240133719159
+  num_transmit_antennas: 4
+  transmit_power: 15.3989926076916
+  connection_state: 0
+  gnb_node_id: 11
+  business_type: eMBB
+  priority: 5
+  slice_type: Custom
+  mobility_model:
+    speed: 8.922431754389818
+    direction: 126.70680917783932
+- id: 18
+  name: UE_18
+  position:
+    latitude: 39.972215260827525
+    longitude: 116.3967981010189
+  noise_figure: 5.625180937029373
+  num_transmit_antennas: 4
+  transmit_power: 15.560899037545681
+  connection_state: 1
+  gnb_node_id: 11
+  business_type: Automotive
+  priority: 10
+  slice_type: mMTC
+  mobility_model:
+    speed: 1.511272164666492
+    direction: 133.46614147819426
+- id: 19
+  name: UE_19
+  position:
+    latitude: 40.12891288439324
+    longitude: 116.43510970122767
+  noise_figure: 5.932563727397697
+  num_transmit_antennas: 2
+  transmit_power: 20.42883857841691
+  connection_state: 1
+  gnb_node_id: 13
+  business_type: URLLC
+  priority: 3
+  slice_type: eMBB
+  mobility_model:
+    speed: 17.147582102092382
+    direction: 316.92314952729583
+- id: 20
+  name: UE_20
+  position:
+    latitude: 39.97613160983333
+    longitude: 116.51959370257451
+  noise_figure: 6.761339090511539
+  num_transmit_antennas: 2
+  transmit_power: 16.51537884677751
+  connection_state: 1
+  gnb_node_id: 4
+  business_type: Entertainment
+  priority: 8
+  slice_type: Custom
+  mobility_model:
+    speed: 22.33978289526047
+    direction: 70.34872076921374
+- id: 21
+  name: UE_21
+  position:
+    latitude: 39.848117374434054
+    longitude: 116.59746569465916
+  noise_figure: 5.586315015510368
+  num_transmit_antennas: 1
+  transmit_power: 18.780731762819315
+  connection_state: 1
+  gnb_node_id: 6
+  business_type: mMTC
+  priority: 2
+  slice_type: URLLC
+  mobility_model:
+    speed: 7.375318188897328
+    direction: 37.55370662596511
+- id: 22
+  name: UE_22
+  position:
+    latitude: 40.003928925781565
+    longitude: 116.48663462372487
+  noise_figure: 5.307028739100966
+  num_transmit_antennas: 2
+  transmit_power: 14.366292829504529
+  connection_state: 1
+  gnb_node_id: 9
+  business_type: Industrial
+  priority: 4
+  slice_type: Custom
+  mobility_model:
+    speed: 11.632437657223086
+    direction: 197.44510488927452
+- id: 23
+  name: UE_23
+  position:
+    latitude: 40.005045267609795
+    longitude: 116.39156233256915
+  noise_figure: 6.694687490231469
+  num_transmit_antennas: 2
+  transmit_power: 16.2089317679555
+  connection_state: 1
+  gnb_node_id: 13
+  business_type: Automotive
+  priority: 6
+  slice_type: mMTC
+  mobility_model:
+    speed: 29.303388226722795
+    direction: 84.46286220167187
+- id: 24
+  name: UE_24
+  position:
+    latitude: 39.90960586006052
+    longitude: 116.44284424128672
+  noise_figure: 8.150465357730353
+  num_transmit_antennas: 1
+  transmit_power: 10.7474017278471
+  connection_state: 1
+  gnb_node_id: 13
+  business_type: mMTC
+  priority: 3
+  slice_type: mMTC
+  mobility_model:
+    speed: 21.69425121798688
+    direction: 202.91030847467192
+- id: 25
+  name: UE_25
+  position:
+    latitude: 39.8402744530477
+    longitude: 116.50424756830368
+  noise_figure: 7.811483507639988
+  num_transmit_antennas: 4
+  transmit_power: 10.433357072868882
+  connection_state: 1
+  gnb_node_id: 12
+  business_type: URLLC
+  priority: 4
+  slice_type: Custom
+  mobility_model:
+    speed: 13.528746800711318
+    direction: 67.8652443991207
+- id: 26
+  name: UE_26
+  position:
+    latitude: 40.10605257262844
+    longitude: 116.54189663436944
+  noise_figure: 7.016625098668463
+  num_transmit_antennas: 4
+  transmit_power: 12.252449226332951
+  connection_state: 1
+  gnb_node_id: 13
+  business_type: URLLC
+  priority: 10
+  slice_type: URLLC
+  mobility_model:
+    speed: 12.141416782710516
+    direction: 322.88768315210643
+- id: 27
+  name: UE_27
+  position:
+    latitude: 40.09669112578401
+    longitude: 116.3786320492882
+  noise_figure: 8.268680539140735
+  num_transmit_antennas: 1
+  transmit_power: 17.937150881639962
+  connection_state: 1
+  gnb_node_id: 9
+  business_type: Automotive
+  priority: 1
+  slice_type: Custom
+  mobility_model:
+    speed: 11.123553244348123
+    direction: 292.93386800872224
+- id: 28
+  name: UE_28
+  position:
+    latitude: 39.8033100062649
+    longitude: 116.37613468838937
+  noise_figure: 8.581420554158951
+  num_transmit_antennas: 4
+  transmit_power: 20.117919259367373
+  connection_state: 1
+  gnb_node_id: 15
+  business_type: eMBB
+  priority: 6
+  slice_type: URLLC
+  mobility_model:
+    speed: 31.942781658811274
+    direction: 124.76212562263572
+- id: 29
+  name: UE_29
+  position:
+    latitude: 40.14119847876004
+    longitude: 116.45145747045798
+  noise_figure: 8.617611470645588
+  num_transmit_antennas: 2
+  transmit_power: 12.189438245917916
+  connection_state: 1
+  gnb_node_id: 1
+  business_type: URLLC
+  priority: 7
+  slice_type: eMBB
+  mobility_model:
+    speed: 0.46973524810196193
+    direction: 121.23616658307165
+- id: 30
+  name: UE_30
+  position:
+    latitude: 39.91478829945279
+    longitude: 116.50591421660735
+  noise_figure: 5.226936370519436
+  num_transmit_antennas: 1
+  transmit_power: 15.820379077055783
+  connection_state: 1
+  gnb_node_id: 9
+  business_type: Entertainment
+  priority: 9
+  slice_type: Custom
+  mobility_model:
+    speed: 1.8516888865185839
+    direction: 54.493153205144495
+- id: 31
+  name: UE_31
+  position:
+    latitude: 40.187040454948466
+    longitude: 116.23362539223741
+  noise_figure: 5.449102302997935
+  num_transmit_antennas: 2
+  transmit_power: 21.234678877703505
+  connection_state: 1
+  gnb_node_id: 10
+  business_type: Automotive
+  priority: 5
+  slice_type: URLLC
+  mobility_model:
+    speed: 30.350633281738208
+    direction: 236.81477083074782
+- id: 32
+  name: UE_32
+  position:
+    latitude: 39.8662705039496
+    longitude: 116.3320537744204
+  noise_figure: 6.677440171240878
+  num_transmit_antennas: 2
+  transmit_power: 12.901928177301938
+  connection_state: 1
+  gnb_node_id: 14
+  business_type: Entertainment
+  priority: 7
+  slice_type: mMTC
+  mobility_model:
+    speed: 17.90939093235293
+    direction: 345.2978591440683
+- id: 33
+  name: UE_33
+  position:
+    latitude: 39.869101353627826
+    longitude: 116.43967422541284
+  noise_figure: 5.234710558798097
+  num_transmit_antennas: 1
+  transmit_power: 14.370970809148186
+  connection_state: 0
+  gnb_node_id: 7
+  business_type: eMBB
+  priority: 7
+  slice_type: eMBB
+  mobility_model:
+    speed: 22.225827151886936
+    direction: 343.47843227537743
+- id: 34
+  name: UE_34
+  position:
+    latitude: 39.808499611717444
+    longitude: 116.38649250113399
+  noise_figure: 5.973162975300701
+  num_transmit_antennas: 4
+  transmit_power: 11.522141629629672
+  connection_state: 1
+  gnb_node_id: 13
+  business_type: URLLC
+  priority: 9
+  slice_type: URLLC
+  mobility_model:
+    speed: 18.09521980101447
+    direction: 168.854245946464
+- id: 35
+  name: UE_35
+  position:
+    latitude: 39.81579514233963
+    longitude: 116.24205538953217
+  noise_figure: 8.198618003864793
+  num_transmit_antennas: 4
+  transmit_power: 10.663908179925954
+  connection_state: 1
+  gnb_node_id: 10
+  business_type: eMBB
+  priority: 10
+  slice_type: URLLC
+  mobility_model:
+    speed: 6.846670380595491
+    direction: 324.2872899676179
+- id: 36
+  name: UE_36
+  position:
+    latitude: 39.87716066109599
+    longitude: 116.40928631397276
+  noise_figure: 8.040679545575143
+  num_transmit_antennas: 4
+  transmit_power: 21.168566743849002
+  connection_state: 1
+  gnb_node_id: 5
+  business_type: eMBB
+  priority: 6
+  slice_type: Custom
+  mobility_model:
+    speed: 3.7715755144968464
+    direction: 111.19051358436569
+- id: 37
+  name: UE_37
+  position:
+    latitude: 40.12432831738508
+    longitude: 116.39714814034572
+  noise_figure: 8.15988672026835
+  num_transmit_antennas: 1
+  transmit_power: 16.036486202192247
+  connection_state: 1
+  gnb_node_id: 10
+  business_type: Entertainment
+  priority: 2
+  slice_type: URLLC
+  mobility_model:
+    speed: 14.746585998181226
+    direction: 277.34309734355634
+- id: 38
+  name: UE_38
+  position:
+    latitude: 40.146190491565946
+    longitude: 116.23945270572196
+  noise_figure: 6.289767423412524
+  num_transmit_antennas: 2
+  transmit_power: 16.259907205079823
+  connection_state: 1
+  gnb_node_id: 14
+  business_type: Industrial
+  priority: 10
+  slice_type: eMBB
+  mobility_model:
+    speed: 25.95153658013679
+    direction: 228.0445563820853
+- id: 39
+  name: UE_39
+  position:
+    latitude: 40.00074415134236
+    longitude: 116.2783564431833
+  noise_figure: 6.809529936800068
+  num_transmit_antennas: 4
+  transmit_power: 12.89811797093419
+  connection_state: 1
+  gnb_node_id: 1
+  business_type: eMBB
+  priority: 4
+  slice_type: mMTC
+  mobility_model:
+    speed: 7.107773722802331
+    direction: 108.76095321615416
+- id: 40
+  name: UE_40
+  position:
+    latitude: 40.05820255818436
+    longitude: 116.46743546368249
+  noise_figure: 6.065756130324678
+  num_transmit_antennas: 1
+  transmit_power: 18.749090480061902
+  connection_state: 1
+  gnb_node_id: 1
+  business_type: Industrial
+  priority: 5
+  slice_type: URLLC
+  mobility_model:
+    speed: 1.288074322814825
+    direction: 59.15880402209453
+- id: 41
+  name: UE_41
+  position:
+    latitude: 40.06496239388838
+    longitude: 116.27171712818493
+  noise_figure: 5.531442080385283
+  num_transmit_antennas: 2
+  transmit_power: 11.51188819272409
+  connection_state: 1
+  gnb_node_id: 11
+  business_type: eMBB
+  priority: 3
+  slice_type: Custom
+  mobility_model:
+    speed: 20.168858258393435
+    direction: 314.40805068123495
+- id: 42
+  name: UE_42
+  position:
+    latitude: 40.19928608766781
+    longitude: 116.34584886473799
+  noise_figure: 6.443955567902419
+  num_transmit_antennas: 1
+  transmit_power: 18.722440420121025
+  connection_state: 0
+  gnb_node_id: 4
+  business_type: eMBB
+  priority: 5
+  slice_type: Custom
+  mobility_model:
+    speed: 19.77942393998156
+    direction: 97.83504869050252
+- id: 43
+  name: UE_43
+  position:
+    latitude: 39.8288781967208
+    longitude: 116.38620827608142
+  noise_figure: 7.779103289581381
+  num_transmit_antennas: 1
+  transmit_power: 12.121707427182727
+  connection_state: 1
+  gnb_node_id: 5
+  business_type: mMTC
+  priority: 7
+  slice_type: eMBB
+  mobility_model:
+    speed: 3.9144769558066965
+    direction: 219.20683025494716
+- id: 44
+  name: UE_44
+  position:
+    latitude: 40.1220875227838
+    longitude: 116.37728201624743
+  noise_figure: 5.98050876823226
+  num_transmit_antennas: 1
+  transmit_power: 16.43807523336227
+  connection_state: 1
+  gnb_node_id: 9
+  business_type: URLLC
+  priority: 1
+  slice_type: Custom
+  mobility_model:
+    speed: 32.010101643155444
+    direction: 346.54188835112126
+- id: 45
+  name: UE_45
+  position:
+    latitude: 40.15019399790157
+    longitude: 116.25353588265722
+  noise_figure: 7.797452128198371
+  num_transmit_antennas: 1
+  transmit_power: 17.342409490874335
+  connection_state: 1
+  gnb_node_id: 8
+  business_type: URLLC
+  priority: 10
+  slice_type: Custom
+  mobility_model:
+    speed: 2.434030288181836
+    direction: 170.42289746790848
+- id: 46
+  name: UE_46
+  position:
+    latitude: 39.93351296001833
+    longitude: 116.27101469944124
+  noise_figure: 8.13188707220411
+  num_transmit_antennas: 1
+  transmit_power: 19.184681363989682
+  connection_state: 1
+  gnb_node_id: 9
+  business_type: Entertainment
+  priority: 1
+  slice_type: Custom
+  mobility_model:
+    speed: 31.957616429599543
+    direction: 329.582363745127
+- id: 47
+  name: UE_47
+  position:
+    latitude: 39.842665201488174
+    longitude: 116.56560208287227
+  noise_figure: 8.96942164362482
+  num_transmit_antennas: 4
+  transmit_power: 21.64849649088562
+  connection_state: 1
+  gnb_node_id: 13
+  business_type: Entertainment
+  priority: 6
+  slice_type: mMTC
+  mobility_model:
+    speed: 25.16305701752675
+    direction: 338.2533359921597
+- id: 48
+  name: UE_48
+  position:
+    latitude: 40.067337288000736
+    longitude: 116.29534497094798
+  noise_figure: 6.491172413561611
+  num_transmit_antennas: 1
+  transmit_power: 22.525709491237308
+  connection_state: 1
+  gnb_node_id: 8
+  business_type: Automotive
+  priority: 3
+  slice_type: Custom
+  mobility_model:
+    speed: 21.47703097708015
+    direction: 262.90456642319657
+- id: 49
+  name: UE_49
+  position:
+    latitude: 40.09174268787574
+    longitude: 116.2771320451431
+  noise_figure: 7.592602631478119
+  num_transmit_antennas: 2
+  transmit_power: 10.781169096216802
+  connection_state: 0
+  gnb_node_id: 2
+  business_type: Automotive
+  priority: 3
+  slice_type: eMBB
+  mobility_model:
+    speed: 25.840148002641648
+    direction: 276.964614410525
+- id: 50
+  name: UE_50
+  position:
+    latitude: 40.15405852382801
+    longitude: 116.45907137290097
+  noise_figure: 8.346550419513658
+  num_transmit_antennas: 4
+  transmit_power: 17.038064294739087
+  connection_state: 1
+  gnb_node_id: 12
+  business_type: Automotive
+  priority: 9
+  slice_type: URLLC
+  mobility_model:
+    speed: 15.717397793958806
+    direction: 121.11244776437591
+interference_groups:
+- group_id: 1
+  carrier_frequency: 4500000000.0
+  channel_bandwidth: 40000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 216
+  gnb_ids:
+  - 1
+  - 2
+  - 3
+  description: '干扰组1 - 载波频率: 4.5GHz, 带宽: 40MHz, SCS: 0kHz'
+- group_id: 2
+  carrier_frequency: 1900000000.0
+  channel_bandwidth: 15000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 79
+  gnb_ids:
+  - 4
+  - 5
+  - 6
+  - 7
+  description: '干扰组2 - 载波频率: 1.9GHz, 带宽: 15MHz, SCS: 0kHz'
+- group_id: 3
+  carrier_frequency: 4500000000.0
+  channel_bandwidth: 15000000.0
+  subcarrier_spacing: 30
+  num_resource_blocks: 79
+  gnb_ids:
+  - 8
+  - 9
+  description: '干扰组3 - 载波频率: 4.5GHz, 带宽: 15MHz, SCS: 0kHz'
+metadata:
+  num_gnbs: 15
+  num_ues: 50
+  num_interference_groups: 3
+  area_bounds: 
+  - 39.8
+  - 40.2
+  - 116.2
+  - 116.6
+  generation_time: '2025-06-06T13:11:37'
+  description: 5G NR网络仿真数据 - 包含干扰组信息

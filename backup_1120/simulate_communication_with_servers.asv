@@ -1,0 +1,31 @@
+
+
+
+function result = simulate_communication_with_servers(numNodes, numServers, nodePositions, serverPositions, distanceMatrix, modes, businessType)
+    % 初始化通信性能参数
+    latency = zeros(1, numNodes + numServers);
+    throughput = zeros(1, numNodes + numServers);
+    packetLoss = zeros(1, numNodes + numServers);
+    
+    % 对于每个通信模式进行仿真
+    for modeName = fieldnames(modes)'
+        mode = modes.(modeName{1});
+        
+        % 仿真用户到服务器的性能
+        for i = 1:numNodes
+            for j = 1:numServers
+                dist = distanceMatrix(i, numNodes + j);
+                
+                % 简单的通信模型计算（这里使用简化的公式，根据距离、带宽、延迟等计算）
+                latency(i) = latency(i) + mode.Latency + dist / mode.Range; % 假设延迟与距离成正比
+                throughput(i) = throughput(i) + mode.Bandwidth / (1 + dist / mode.Range); % 假设吞吐量与距离成反比
+                packetLoss(i) = packetLoss(i) + 0.1 * exp(-dist / mode.Range); % 假设丢包率与距离成反比
+            end
+        end
+    end
+    
+    % 将仿真结果返回
+    result.latency = mean(latency);
+    result.throughput = mean(throughput);
+    result.packetLoss = mean(packetLoss);
+end

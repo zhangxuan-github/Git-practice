@@ -1,0 +1,5 @@
+simParameters.NumFramesSim =2;
+simParameters.NumMetricsSteps =10;
+simParameters.UESpeed =20;
+simParameters.SCS =60;
+simParameters.DLBandwidth  =50;

@@ -1,0 +1,1294 @@
+# 仿真区域和时间配置
+area:
+  x_min: 0
+  x_max: 10000  # 仿真区域 x 坐标范围 (m)
+  y_min: 0
+  y_max: 10000  # 仿真区域 y 坐标范围 (m)
+simulation_time: 10  # 仿真总时长 (s)
+
+# 通道模型
+channel_model:
+  type: "rayleigh"
+  params:
+    fade_margin: 10
+
+# 路径损耗模型
+pass_loss_model:
+  type: "log-distance"
+  params:
+    referencePathLoss: 60 
+    referenceDistance: 1
+    pathLossExponent: 3.5 
+    enableShadowing: true
+    shadowingStd: 8
+
+# 噪声模型
+noise:
+  type: "thermal"
+  params:
+    noise_figure: 5
+
+# 分布器定义
+distributors:
+  dist_uniform:
+    type: "Uniform"  # 均匀分布
+    params: 
+      lower: 2000000
+      upper: 20000000
+  move_uniform:
+    type: "Uniform"  # 均匀移动
+    params:
+      lower: -7
+      upper: 7
+
+# 基站配置
+base_stations:
+  - id: 1
+    latitude: 39.9042
+    longitude: 116.4074
+    capacity: 150000000  # 基站总容量 150Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n78_1"
+        center_frequency: 3500000000
+        range:
+          min: 3450000000
+          max: 3550000000
+      - name: "5G_n41_1"
+        center_frequency: 2650000000
+        range:
+          min: 2620000000
+          max: 2690000000
+    antenna:
+      type: "UPA"
+      params:
+        rows: 8
+        columns: 8
+    beamforming:
+      type: "ZF"
+    slices:
+      - id: 1
+        type: "eMBB"
+        resource_ratio: 0.5  # 占用（带宽）权重
+        min_sinr_guarantee: 10.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 1000000  # 最小带宽保证 1Mbps
+        qos_level: 3  # QoS级别
+      - id: 2
+        type: "URLLC"
+        resource_ratio: 0.3  # 占用（带宽）权重
+        min_sinr_guarantee: 15.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 500000  # 最小带宽保证 500kbps
+        qos_level: 1  # QoS级别
+    cells:
+      - id: 101
+        bandwidth_weight: 0.4  # 分配带宽权重
+        power_weight: 0.4  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_1"
+        power_control_step: 0.5
+        azimuth_angle: 0
+        sector_angle: 120
+        radius: 1500.0
+      - id: 102
+        bandwidth_weight: 0.3  # 分配带宽权重
+        power_weight: 0.3  # 分配功率权重
+        use_frequencies:
+          - "5G_n41_1"
+        power_control_step: 0.5
+        azimuth_angle: 120
+        sector_angle: 120
+        radius: 1500.0
+      - id: 103
+        bandwidth_weight: 0.3  # 分配带宽权重
+        power_weight: 0.3  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_1"
+          - "5G_n41_1"
+        power_control_step: 0.5
+        azimuth_angle: 240
+        sector_angle: 120
+        radius: 1500.0
+
+  - id: 2
+    latitude: 39.9500
+    longitude: 116.4500
+    capacity: 200000000  # 基站总容量 200Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n78_2"
+        center_frequency: 3500000000
+        range:
+          min: 3450000000
+          max: 3550000000
+      - name: "5G_n257_2"
+        center_frequency: 28000000000
+        range:
+          min: 27500000000
+          max: 28500000000
+    antenna:
+      type: "ULA"
+      params:
+        numElements: 64
+    beamforming:
+      type: "MMSE"
+    slices:
+      - id: 1
+        type: "eMBB"
+        resource_ratio: 0.5  # 占用（带宽）权重
+        min_sinr_guarantee: 10.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 1000000  # 最小带宽保证 1Mbps
+        qos_level: 3  # QoS级别
+      - id: 3
+        type: "mMTC"
+        resource_ratio: 0.2  # 占用（带宽）权重
+        min_sinr_guarantee: 5.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 100000  # 最小带宽保证 100kbps
+        qos_level: 5  # QoS级别
+    cells:
+      - id: 201
+        bandwidth_weight: 0.5  # 分配带宽权重
+        power_weight: 0.5  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_2"
+        power_control_step: 0.5
+        azimuth_angle: 0
+        sector_angle: 180
+        radius: 1000.0
+      - id: 202
+        bandwidth_weight: 0.5  # 分配带宽权重
+        power_weight: 0.5  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_2"
+        power_control_step: 0.5
+        azimuth_angle: 180
+        sector_angle: 180
+        radius: 1000.0
+
+  - id: 3
+    latitude: 39.9150
+    longitude: 116.4300
+    capacity: 300000000  # 基站总容量 300Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n257_3"
+        center_frequency: 28000000000
+        range:
+          min: 27500000000
+          max: 28500000000
+    antenna:
+      type: "ULA"
+      params:
+        numElements: 32
+    beamforming:
+      type: "MRT"
+    slices:
+      - id: 2
+        type: "URLLC"
+        resource_ratio: 0.3  # 占用（带宽）权重
+        min_sinr_guarantee: 15.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 500000  # 最小带宽保证 500kbps
+        qos_level: 1  # QoS级别
+    cells:
+      - id: 301
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_3"
+        power_control_step: 0.2
+        azimuth_angle: 0
+        sector_angle: 90
+        radius: 500.0
+      - id: 302
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_3"
+        power_control_step: 0.2
+        azimuth_angle: 90
+        sector_angle: 90
+        radius: 500.0
+      - id: 303
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_3"
+        power_control_step: 0.2
+        azimuth_angle: 180
+        sector_angle: 90
+        radius: 500.0
+      - id: 304
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_3"
+        power_control_step: 0.2
+        azimuth_angle: 270
+        sector_angle: 90
+        radius: 500.0
+
+  - id: 4
+    latitude: 39.9250
+    longitude: 116.4400
+    capacity: 250000000  # 基站总容量 250Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n78_4"
+        center_frequency: 3500000000
+        range:
+          min: 3450000000
+          max: 3550000000
+    antenna:
+      type: "UPA"
+      params:
+        rows: 4
+        columns: 4
+    beamforming:
+      type: "ZF"
+    slices:
+      - id: 1
+        type: "eMBB"
+        resource_ratio: 0.5  # 占用（带宽）权重
+        min_sinr_guarantee: 10.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 1000000  # 最小带宽保证 1Mbps
+        qos_level: 3  # QoS级别
+      - id: 3
+        type: "mMTC"
+        resource_ratio: 0.2  # 占用（带宽）权重
+        min_sinr_guarantee: 5.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 100000  # 最小带宽保证 100kbps
+        qos_level: 5  # QoS级别
+    cells:
+      - id: 401
+        bandwidth_weight: 0.33  # 分配带宽权重
+        power_weight: 0.33  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_4"
+        power_control_step: 0.5
+        azimuth_angle: 0
+        sector_angle: 120
+        radius: 1800.0
+      - id: 402
+        bandwidth_weight: 0.33  # 分配带宽权重
+        power_weight: 0.33  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_4"
+        power_control_step: 0.5
+        azimuth_angle: 120
+        sector_angle: 120
+        radius: 1800.0
+      - id: 403
+        bandwidth_weight: 0.34  # 分配带宽权重
+        power_weight: 0.34  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_4"
+        power_control_step: 0.5
+        azimuth_angle: 240
+        sector_angle: 120
+        radius: 1800.0
+
+  - id: 5
+    latitude: 39.9350
+    longitude: 116.4200
+    capacity: 180000000  # 基站总容量 180Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n41_5"
+        center_frequency: 2650000000
+        range:
+          min: 2620000000
+          max: 2690000000
+    antenna:
+      type: "UPA"
+      params:
+        rows: 8
+        columns: 8
+    beamforming:
+      type: "MMSE"
+    slices:
+      - id: 1
+        type: "eMBB"
+        resource_ratio: 0.5  # 占用（带宽）权重
+        min_sinr_guarantee: 10.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 1000000  # 最小带宽保证 1Mbps
+        qos_level: 3  # QoS级别
+      - id: 2
+        type: "URLLC"
+        resource_ratio: 0.3  # 占用（带宽）权重
+        min_sinr_guarantee: 15.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 500000  # 最小带宽保证 500kbps
+        qos_level: 1  # QoS级别
+    cells:
+      - id: 501
+        bandwidth_weight: 0.5  # 分配带宽权重
+        power_weight: 0.5  # 分配功率权重
+        use_frequencies:
+          - "5G_n41_5"
+        power_control_step: 0.5
+        azimuth_angle: 0
+        sector_angle: 180
+        radius: 1600.0
+      - id: 502
+        bandwidth_weight: 0.5  # 分配带宽权重
+        power_weight: 0.5  # 分配功率权重
+        use_frequencies:
+          - "5G_n41_5"
+        power_control_step: 0.5
+        azimuth_angle: 180
+        sector_angle: 180
+        radius: 1600.0
+
+  - id: 6
+    latitude: 39.9450
+    longitude: 116.4100
+    capacity: 220000000  # 基站总容量 220Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n257_6"
+        center_frequency: 28000000000
+        range:
+          min: 27500000000
+          max: 28500000000
+      - name: "5G_n257_61"
+        center_frequency: 28000000000
+        range:
+          min: 27400000000
+          max: 28600000000
+    antenna:
+      type: "ULA"
+      params:
+        numElements: 64
+    beamforming:
+      type: "MRT"
+    slices:
+      - id: 2
+        type: "URLLC"
+        resource_ratio: 0.3  # 占用（带宽）权重
+        min_sinr_guarantee: 15.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 500000  # 最小带宽保证 500kbps
+        qos_level: 1  # QoS级别
+    cells:
+      - id: 601
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_6"
+        power_control_step: 0.2
+        azimuth_angle: 0
+        sector_angle: 90
+        radius: 600.0
+      - id: 602
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_6"
+        power_control_step: 0.2
+        azimuth_angle: 90
+        sector_angle: 90
+        radius: 600.0
+      - id: 603
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_6"
+        power_control_step: 0.2
+        azimuth_angle: 180
+        sector_angle: 90
+        radius: 600.0
+      - id: 604
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_6"
+        power_control_step: 0.2
+        azimuth_angle: 270
+        sector_angle: 90
+        radius: 600.0
+
+  - id: 7
+    latitude: 39.9100
+    longitude: 116.4400
+    capacity: 190000000  # 基站总容量 190Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n78_7"
+        center_frequency: 3500000000
+        range:
+          min: 3450000000
+          max: 3550000000
+      - name: "5G_n41_7"
+        center_frequency: 2650000000
+        range:
+          min: 2620000000
+          max: 2690000000
+    antenna:
+      type: "UPA"
+      params:
+        rows: 4
+        columns: 4
+    beamforming:
+      type: "ZF"
+    slices:
+      - id: 1
+        type: "eMBB"
+        resource_ratio: 0.5  # 占用（带宽）权重
+        min_sinr_guarantee: 10.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 1000000  # 最小带宽保证 1Mbps
+        qos_level: 3  # QoS级别
+      - id: 3
+        type: "mMTC"
+        resource_ratio: 0.2  # 占用（带宽）权重
+        min_sinr_guarantee: 5.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 100000  # 最小带宽保证 100kbps
+        qos_level: 5  # QoS级别
+    cells:
+      - id: 701
+        bandwidth_weight: 0.33  # 分配带宽权重
+        power_weight: 0.33  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_7"
+        power_control_step: 0.5
+        azimuth_angle: 0
+        sector_angle: 120
+        radius: 1700.0
+      - id: 702
+        bandwidth_weight: 0.33  # 分配带宽权重
+        power_weight: 0.33  # 分配功率权重
+        use_frequencies:
+          - "5G_n41_7"
+        power_control_step: 0.5
+        azimuth_angle: 120
+        sector_angle: 120
+        radius: 1700.0
+      - id: 703
+        bandwidth_weight: 0.34  # 分配带宽权重
+        power_weight: 0.34  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_7"
+          - "5G_n41_7"
+        power_control_step: 0.5
+        azimuth_angle: 240
+        sector_angle: 120
+        radius: 1700.0
+
+  - id: 8
+    latitude: 39.9200
+    longitude: 116.4500
+    capacity: 210000000  # 基站总容量 210Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n78_8"
+        center_frequency: 3500000000
+        range:
+          min: 3450000000
+          max: 3550000000
+    antenna:
+      type: "ULA"
+      params:
+        numElements: 32
+    beamforming:
+      type: "MMSE"
+    slices:
+      - id: 1
+        type: "eMBB"
+        resource_ratio: 0.5  # 占用（带宽）权重
+        min_sinr_guarantee: 10.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 1000000  # 最小带宽保证 1Mbps
+        qos_level: 3  # QoS级别
+      - id: 2
+        type: "URLLC"
+        resource_ratio: 0.3  # 占用（带宽）权重
+        min_sinr_guarantee: 15.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 500000  # 最小带宽保证 500kbps
+        qos_level: 1  # QoS级别
+    cells:
+      - id: 801
+        bandwidth_weight: 0.5  # 分配带宽权重
+        power_weight: 0.5  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_8"
+        power_control_step: 0.5
+        azimuth_angle: 0
+        sector_angle: 180
+        radius: 1400.0
+      - id: 802
+        bandwidth_weight: 0.5  # 分配带宽权重
+        power_weight: 0.5  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_8"
+        power_control_step: 0.5
+        azimuth_angle: 180
+        sector_angle: 180
+        radius: 1400.0
+
+  - id: 9
+    latitude: 39.9300
+    longitude: 116.4300
+    capacity: 240000000  # 基站总容量 240Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n257_9"
+        center_frequency: 28000000000
+        range:
+          min: 27500000000
+          max: 28500000000
+    antenna:
+      type: "ULA"
+      params:
+        numElements: 64
+    beamforming:
+      type: "MRT"
+    slices:
+      - id: 2
+        type: "URLLC"
+        resource_ratio: 0.3  # 占用（带宽）权重
+        min_sinr_guarantee: 15.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 500000  # 最小带宽保证 500kbps
+        qos_level: 1  # QoS级别
+    cells:
+      - id: 901
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_9"
+        power_control_step: 0.2
+        azimuth_angle: 0
+        sector_angle: 90
+        radius: 700.0
+      - id: 902
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_9"
+        power_control_step: 0.2
+        azimuth_angle: 90
+        sector_angle: 90
+        radius: 700.0
+      - id: 903
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_9"
+        power_control_step: 0.2
+        azimuth_angle: 180
+        sector_angle: 90
+        radius: 700.0
+      - id: 904
+        bandwidth_weight: 0.25  # 分配带宽权重
+        power_weight: 0.25  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_9"
+        power_control_step: 0.2
+        azimuth_angle: 270
+        sector_angle: 90
+        radius: 700.0
+
+  - id: 10
+    latitude: 39.9400
+    longitude: 116.4200
+    capacity: 170000000  # 基站总容量 170Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n41_10"
+        center_frequency: 2650000000
+        range:
+          min: 2620000000
+          max: 2690000000
+      - name: "5G_n78_10"
+        center_frequency: 3500000000
+        range:
+          min: 3450000000
+          max: 3550000000
+    antenna:
+      type: "UPA"
+      params:
+        rows: 8
+        columns: 8
+    beamforming:
+      type: "ZF"
+    slices:
+      - id: 1
+        type: "eMBB"
+        resource_ratio: 0.5  # 占用（带宽）权重
+        min_sinr_guarantee: 10.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 1000000  # 最小带宽保证 1Mbps
+        qos_level: 3  # QoS级别
+      - id: 3
+        type: "mMTC"
+        resource_ratio: 0.2  # 占用（带宽）权重
+        min_sinr_guarantee: 5.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 100000  # 最小带宽保证 100kbps
+        qos_level: 5  # QoS级别
+    cells:
+      - id: 1001
+        bandwidth_weight: 0.33  # 分配带宽权重
+        power_weight: 0.33  # 分配功率权重
+        use_frequencies:
+          - "5G_n41_10"
+        power_control_step: 0.5
+        azimuth_angle: 0
+        sector_angle: 120
+        radius: 1900.0
+      - id: 1002
+        bandwidth_weight: 0.33  # 分配带宽权重
+        power_weight: 0.33  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_10"
+        power_control_step: 0.5
+        azimuth_angle: 120
+        sector_angle: 120
+        radius: 1900.0
+      - id: 1003
+        bandwidth_weight: 0.34  # 分配带宽权重
+        power_weight: 0.34  # 分配功率权重
+        use_frequencies:
+          - "5G_n41_10"
+          - "5G_n78_10"
+        power_control_step: 0.5
+        azimuth_angle: 240
+        sector_angle: 120
+        radius: 1900.0
+
+  - id: 11
+    latitude: 39.9250
+    longitude: 116.4150
+    capacity: 230000000  # 基站总容量 230Mbps
+    power: 43.0  # 基站总功率 dBm
+    frequencies:
+      - name: "5G_n78_11"
+        center_frequency: 3500000000
+        range:
+          min: 3450000000
+          max: 3550000000
+      - name: "5G_n257_11"
+        center_frequency: 28000000000
+        range:
+          min: 27500000000
+          max: 28500000000
+    antenna:
+      type: "ULA"
+      params:
+        numElements: 48
+    beamforming:
+      type: "MMSE"
+    slices:
+      - id: 1
+        type: "eMBB"
+        resource_ratio: 0.5  # 占用（带宽）权重
+        min_sinr_guarantee: 10.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 1000000  # 最小带宽保证 1Mbps
+        qos_level: 3  # QoS级别
+      - id: 2
+        type: "URLLC"
+        resource_ratio: 0.3  # 占用（带宽）权重
+        min_sinr_guarantee: 15.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 500000  # 最小带宽保证 500kbps
+        qos_level: 1  # QoS级别
+      - id: 3
+        type: "mMTC"
+        resource_ratio: 0.2  # 占用（带宽）权重
+        min_sinr_guarantee: 5.0  # 最小SINR保证 dB
+        min_bandwidth_guarantee: 100000  # 最小带宽保证 100kbps
+        qos_level: 5  # QoS级别
+    cells:
+      - id: 1101
+        bandwidth_weight: 0.33  # 分配带宽权重
+        power_weight: 0.33  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_11"
+        power_control_step: 0.5
+        azimuth_angle: 0
+        sector_angle: 120
+        radius: 2200.0
+      - id: 1102
+        bandwidth_weight: 0.33  # 分配带宽权重
+        power_weight: 0.33  # 分配功率权重
+        use_frequencies:
+          - "5G_n257_11"
+        power_control_step: 0.5
+        azimuth_angle: 120
+        sector_angle: 120
+        radius: 2200.0
+      - id: 1103
+        bandwidth_weight: 0.34  # 分配带宽权重
+        power_weight: 0.34  # 分配功率权重
+        use_frequencies:
+          - "5G_n78_11"
+          - "5G_n257_11"
+        power_control_step: 0.5
+        azimuth_angle: 240
+        sector_angle: 120
+        radius: 2200.0
+
+# 切片业务生成器
+slice_business_generators:
+  - slice_type: "eMBB"
+    distributor: "dist_uniform"
+  - slice_type: "URLLC"
+    distributor: "dist_uniform"
+  - slice_type: "mMTC"
+    distributor: "dist_uniform"
+
+# 客户端配置
+clients:
+  - id: 1
+    latitude: 39.9087
+    longitude: 116.4205
+    slice_type: "eMBB" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+  - id: 2
+    latitude: 39.9234
+    longitude: 116.4142
+    slice_type: "URLLC" # 使用字符串格式
+    mobility_model:
+      type: "RandomWaypoint"
+      params:
+        min_speed: 0.5
+        max_speed: 2.5
+        pause_time: 60
+      distributor: "move_uniform"
+  - id: 3
+    latitude: 39.9156
+    longitude: 116.4387
+    slice_type: "mMTC" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+  - id: 4
+    latitude: 39.9312
+    longitude: 116.4298
+    slice_type: "eMBB" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+  - id: 5
+    latitude: 39.9198
+    longitude: 116.4176
+    slice_type: "URLLC" # 使用字符串格式
+    mobility_model:
+      type: "RandomWaypoint"
+      params:
+        min_speed: 0.5
+        max_speed: 2.5
+        pause_time: 60
+      distributor: "move_uniform"
+  - id: 6
+    latitude: 39.9267
+    longitude: 116.4431
+    slice_type: "mMTC" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+  - id: 7
+    latitude: 39.9143
+    longitude: 116.4253
+    slice_type: "eMBB" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+  - id: 8
+    latitude: 39.9289
+    longitude: 116.4367
+    slice_type: "URLLC" # 使用字符串格式
+    mobility_model:
+      type: "RandomWaypoint"
+      params:
+        min_speed: 0.5
+        max_speed: 2.5
+        pause_time: 60
+      distributor: "move_uniform"
+  - id: 9
+    latitude: 39.9178
+    longitude: 116.4512
+    slice_type: "mMTC" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+  - id: 10
+    latitude: 39.9321
+    longitude: 116.4189
+    slice_type: "eMBB" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+  - id: 11
+    latitude: 39.9105
+    longitude: 116.4324
+    slice_type: "URLLC" # 使用字符串格式
+    mobility_model:
+      type: "RandomWaypoint"
+      params:
+        min_speed: 0.5
+        max_speed: 2.5
+        pause_time: 60
+      distributor: "move_uniform"
+  - id: 12
+    latitude: 39.9245
+    longitude: 116.4278
+    slice_type: "mMTC" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+  - id: 13
+    latitude: 39.9167
+    longitude: 116.4445
+    slice_type: "eMBB" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+  - id: 14
+    latitude: 39.9298
+    longitude: 116.4356
+    slice_type: "URLLC" # 使用字符串格式
+    mobility_model:
+      type: "RandomWaypoint"
+      params:
+        min_speed: 0.5
+        max_speed: 2.5
+        pause_time: 60
+      distributor: "move_uniform"
+  - id: 15
+    latitude: 39.9134
+    longitude: 116.4198
+    slice_type: "mMTC" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+  - id: 16
+    latitude: 39.9276
+    longitude: 116.4523
+    slice_type: "eMBB" # 使用字符串格式
+    mobility_model:
+      type: "RandomWalk"
+      params:
+        speed: 1.0
+        pause_time: 30
+      distributor: "move_uniform"
+
+  # - id: 17
+  #   latitude: 39.9420
+  #   longitude: 116.4630
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 18
+  #   latitude: 39.9440
+  #   longitude: 116.4660
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 19
+  #   latitude: 39.9460
+  #   longitude: 116.4690
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 20
+  #   latitude: 39.9480
+  #   longitude: 116.4720
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 21
+  #   latitude: 39.9500
+  #   longitude: 116.4750
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 22
+  #   latitude: 39.9520
+  #   longitude: 116.4780
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 23
+  #   latitude: 39.9540
+  #   longitude: 116.4810
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 24
+  #   latitude: 39.9560
+  #   longitude: 116.4840
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 25
+  #   latitude: 39.9580
+  #   longitude: 116.4870
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 26
+  #   latitude: 39.9600
+  #   longitude: 116.4900
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 27
+  #   latitude: 39.9620
+  #   longitude: 116.4930
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 28
+  #   latitude: 39.9640
+  #   longitude: 116.4960
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 29
+  #   latitude: 39.9660
+  #   longitude: 116.4990
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 30
+  #   latitude: 39.9680
+  #   longitude: 116.5020
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 31
+  #   latitude: 39.9700
+  #   longitude: 116.5050
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 32
+  #   latitude: 39.9720
+  #   longitude: 116.5080
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 33
+  #   latitude: 39.9740
+  #   longitude: 116.5110
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 34
+  #   latitude: 39.9760
+  #   longitude: 116.5140
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 35
+  #   latitude: 39.9780
+  #   longitude: 116.5170
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 36
+  #   latitude: 39.9800
+  #   longitude: 116.5200
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 37
+  #   latitude: 39.9820
+  #   longitude: 116.5230
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 38
+  #   latitude: 39.9840
+  #   longitude: 116.5260
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 39
+  #   latitude: 39.9860
+  #   longitude: 116.5290
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 40
+  #   latitude: 39.9880
+  #   longitude: 116.5320
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 41
+  #   latitude: 39.9900
+  #   longitude: 116.5350
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 42
+  #   latitude: 39.9920
+  #   longitude: 116.5380
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 43
+  #   latitude: 39.9940
+  #   longitude: 116.5410
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 44
+  #   latitude: 39.9960
+  #   longitude: 116.5440
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 45
+  #   latitude: 39.9980
+  #   longitude: 116.5470
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 46
+  #   latitude: 40.0000
+  #   longitude: 116.5500
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 47
+  #   latitude: 40.0020
+  #   longitude: 116.5530
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 48
+  #   latitude: 40.0040
+  #   longitude: 116.5560
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 49
+  #   latitude: 40.0060
+  #   longitude: 116.5590
+  #   slice_type: "eMBB"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"
+
+  # - id: 50
+  #   latitude: 40.0080
+  #   longitude: 116.5620
+  #   slice_type: "URLLC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWaypoint"
+  #     params:
+  #       min_speed: 0.5
+  #       max_speed: 2.5
+  #       pause_time: 60
+  #     distributor: "move_uniform"
+
+  # - id: 51
+  #   latitude: 40.0100
+  #   longitude: 116.5650
+  #   slice_type: "mMTC"  # 使用字符串格式
+  #   mobility_model:
+  #     type: "RandomWalk"
+  #     params:
+  #       speed: 1.0
+  #       pause_time: 30
+  #     distributor: "move_uniform"

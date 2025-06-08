@@ -1,0 +1,126 @@
+gNBs:
+- id: 1
+  name: gNB_1
+  position:
+    latitude: 39.908860
+    longitude: 116.397390
+    height: 50.0
+  radius: 400
+  noise_figure: 3
+  num_transmit_antennas: 16
+  transmit_power: 43
+  carrier_frequency: 3500000000
+  channel_bandwidth: 100000000
+  subcarrier_spacing: 30000
+  num_resource_blocks: 273
+  slices:
+  - slice_type: mMTC
+    qos_level: 10
+    resource_weight: 0.10
+  - slice_type: URLLC
+    qos_level: 2
+    resource_weight: 0.25
+  - slice_type: eMBB
+    qos_level: 4
+    resource_weight: 0.60
+
+- id: 2
+  name: gNB_2
+  position:
+    latitude: 39.917820
+    longitude: 116.397390
+    height: 50.0
+  radius: 400
+  noise_figure: 4
+  num_transmit_antennas: 16
+  transmit_power: 38
+  carrier_frequency: 3500000000
+  channel_bandwidth: 100000000
+  subcarrier_spacing: 30000
+  num_resource_blocks: 273
+  slices:
+  - slice_type: mMTC
+    qos_level: 10
+    resource_weight: 0.15
+  - slice_type: URLLC
+    qos_level: 2
+    resource_weight: 0.25
+  - slice_type: eMBB
+    qos_level: 7
+    resource_weight: 0.55
+
+UEs:
+- id: 1
+  name: UE_1
+  position:
+    latitude: 39.910860
+    longitude: 116.399890
+    height: 50.0
+  noise_figure: 6
+  num_transmit_antennas: 1
+  transmit_power: 17
+  connection_state: 0
+  gnb_node_id: 1
+  business_type: eMBB
+  priority: 7
+  slice_type: eMBB
+  mobility_model:
+    speed: 7
+    direction: 113
+- id: 2
+  name: UE_2
+  position:
+    latitude: 39.907360
+    longitude: 116.395390
+    height: 50.0
+  noise_figure: 6
+  num_transmit_antennas: 1
+  transmit_power: 19
+  connection_state: 0
+  gnb_node_id: 1
+  business_type: eMBB
+  priority: 3
+  slice_type: eMBB
+  mobility_model:
+    speed: 8
+    direction: 30
+- id: 3
+  name: UE_3
+  position:
+    latitude: 39.919620
+    longitude: 116.395890
+    height: 50.0
+  noise_figure: 6
+  num_transmit_antennas: 1
+  transmit_power: 19
+  connection_state: 0
+  gnb_node_id: 2
+  business_type: eMBB
+  priority: 3
+  slice_type: eMBB
+  mobility_model:
+    speed: 8
+    direction: 30
+- id: 4
+  name: UE_4
+  position:
+    latitude: 39.915820
+    longitude: 116.399190
+    height: 50.0
+  noise_figure: 6
+  num_transmit_antennas: 1
+  transmit_power: 19
+  connection_state: 0
+  gnb_node_id: 2
+  business_type: eMBB
+  priority: 3
+  slice_type: eMBB
+  mobility_model:
+    speed: 7
+    direction: 250
+
+area:
+  latitudeTopLeft: 39.922000
+  longitudeTopLeft: 116.393000
+  latitudeBottomRight: 39.905000
+  longitudeBottomRight: 116.402000

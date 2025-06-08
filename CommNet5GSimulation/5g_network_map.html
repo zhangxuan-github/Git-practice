@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_17bb6e7d0569b3f94b0a2790a305ebfc {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                bottom: 50px; left: 50px; width: 250px; height: 200px; 
+                background-color: white; border:2px solid grey; z-index:9999; 
+                font-size:12px; padding: 10px">
+    <p><b>5G网络图例</b></p>
+    <p><i class="fa fa-broadcast-tower" style="color:red"></i> 基站 (gNB)</p>
+    <p><i class="fa fa-mobile" style="color:blue"></i> eMBB用户</p>
+    <p><i class="fa fa-mobile" style="color:red"></i> URLLC用户</p>
+    <p><i class="fa fa-mobile" style="color:green"></i> mMTC用户</p>
+    <p>🔴 覆盖范围</p>
+    <p>→ 移动方向</p>
+    <p><small>基站数: 2, 用户数: 4</small></p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_17bb6e7d0569b3f94b0a2790a305ebfc" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_17bb6e7d0569b3f94b0a2790a305ebfc = L.map(
+                "map_17bb6e7d0569b3f94b0a2790a305ebfc",
+                {
+                    center: [39.91339, 116.39752333333333],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 15,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_275260900578983e498d8f942b2405f2 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_275260900578983e498d8f942b2405f2.addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+            var marker_103aa91d023275988131dd945c9201cf = L.marker(
+                [39.90886, 116.39739],
+                {
+}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+            var icon_1ed6c29839c255578299ed1ff40adc79 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "broadcast-tower",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e2de9a16a4e239f8c24bc62ebdf03ba0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_477d998d9d901b50b6e0039b7ea3041a = $(`<div id="html_477d998d9d901b50b6e0039b7ea3041a" style="width: 100.0%; height: 100.0%;">         <b>gNB_1</b><br>         ID: 1<br>         发射功率: 43 dBm<br>         噪声系数: 3 dB<br>         覆盖半径: 400 m<br>         天线数: 16<br>         载波频率: 3.5 GHz<br>         信道带宽: 100 MHz<br>         子载波间隔: 30 kHz<br>         资源块数: 273         <br><b>网络切片:</b><br>- mMTC: QoS=10<br>- URLLC: QoS=2<br>- eMBB: QoS=4<br>         </div>`)[0];
+                popup_e2de9a16a4e239f8c24bc62ebdf03ba0.setContent(html_477d998d9d901b50b6e0039b7ea3041a);
+            
+        
+
+        marker_103aa91d023275988131dd945c9201cf.bindPopup(popup_e2de9a16a4e239f8c24bc62ebdf03ba0)
+        ;
+
+        
+    
+    
+            marker_103aa91d023275988131dd945c9201cf.bindTooltip(
+                `<div>
+                     gNB_1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_103aa91d023275988131dd945c9201cf.setIcon(icon_1ed6c29839c255578299ed1ff40adc79);
+            
+    
+            var circle_a9b698351ff791bfea6e66a75cc41db3 = L.circle(
+                [39.90886, 116.39739],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400, "stroke": true, "weight": 2}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+        var popup_105b083de2483cfeeb10537f6bed3d82 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd249d6b949476d5ffee211279bb854b = $(`<div id="html_fd249d6b949476d5ffee211279bb854b" style="width: 100.0%; height: 100.0%;">gNB_1 覆盖范围 (400m)</div>`)[0];
+                popup_105b083de2483cfeeb10537f6bed3d82.setContent(html_fd249d6b949476d5ffee211279bb854b);
+            
+        
+
+        circle_a9b698351ff791bfea6e66a75cc41db3.bindPopup(popup_105b083de2483cfeeb10537f6bed3d82)
+        ;
+
+        
+    
+    
+            var marker_edeb08dadd297e0f1fbe35d44f221797 = L.marker(
+                [39.91782, 116.39739],
+                {
+}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+            var icon_d733a9017da641ba6929144ce1eedc2b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "broadcast-tower",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_67203e0f1f08b29f6bc9f9edaaab3fa2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf138f4d63f668a6ce431dc50b5ad98e = $(`<div id="html_bf138f4d63f668a6ce431dc50b5ad98e" style="width: 100.0%; height: 100.0%;">         <b>gNB_2</b><br>         ID: 2<br>         发射功率: 38 dBm<br>         噪声系数: 4 dB<br>         覆盖半径: 400 m<br>         天线数: 16<br>         载波频率: 3.5 GHz<br>         信道带宽: 100 MHz<br>         子载波间隔: 30 kHz<br>         资源块数: 273         <br><b>网络切片:</b><br>- mMTC: QoS=10<br>- URLLC: QoS=2<br>- eMBB: QoS=7<br>         </div>`)[0];
+                popup_67203e0f1f08b29f6bc9f9edaaab3fa2.setContent(html_bf138f4d63f668a6ce431dc50b5ad98e);
+            
+        
+
+        marker_edeb08dadd297e0f1fbe35d44f221797.bindPopup(popup_67203e0f1f08b29f6bc9f9edaaab3fa2)
+        ;
+
+        
+    
+    
+            marker_edeb08dadd297e0f1fbe35d44f221797.bindTooltip(
+                `<div>
+                     gNB_2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_edeb08dadd297e0f1fbe35d44f221797.setIcon(icon_d733a9017da641ba6929144ce1eedc2b);
+            
+    
+            var circle_9c5cc49197e24de7a85db8805b41f093 = L.circle(
+                [39.91782, 116.39739],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400, "stroke": true, "weight": 2}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+        var popup_77ba890ba99fa1ae978109e0ae0ea16b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f4ad87cf8d5ef2cf045b5c4dbc48427a = $(`<div id="html_f4ad87cf8d5ef2cf045b5c4dbc48427a" style="width: 100.0%; height: 100.0%;">gNB_2 覆盖范围 (400m)</div>`)[0];
+                popup_77ba890ba99fa1ae978109e0ae0ea16b.setContent(html_f4ad87cf8d5ef2cf045b5c4dbc48427a);
+            
+        
+
+        circle_9c5cc49197e24de7a85db8805b41f093.bindPopup(popup_77ba890ba99fa1ae978109e0ae0ea16b)
+        ;
+
+        
+    
+    
+            var marker_25d832bf585a64ff0e7a4a734c758002 = L.marker(
+                [39.91086, 116.39989],
+                {
+}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+            var icon_edb53497afb6fa56fd97040afa1f78b0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "mobile",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aeab492855821bcfee2ef598ba2735be = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4595f40e0809faf14c5a5dc5647ba26a = $(`<div id="html_4595f40e0809faf14c5a5dc5647ba26a" style="width: 100.0%; height: 100.0%;">         <b>UE_1</b><br>         ID: 1<br>         业务类型: eMBB<br>         切片类型: eMBB<br>         优先级: 7<br>         发射功率: 17 dBm<br>         噪声系数: 6 dB<br>         天线数: 1<br>                      移动速度: 7 m/s<br>             移动方向: 113°<br>                      <br><b>距离基站:</b><br>- gNB_1: 308.2m (✓覆盖)<br>- gNB_2: 801.8m (✗超出)<br>         </div>`)[0];
+                popup_aeab492855821bcfee2ef598ba2735be.setContent(html_4595f40e0809faf14c5a5dc5647ba26a);
+            
+        
+
+        marker_25d832bf585a64ff0e7a4a734c758002.bindPopup(popup_aeab492855821bcfee2ef598ba2735be)
+        ;
+
+        
+    
+    
+            marker_25d832bf585a64ff0e7a4a734c758002.bindTooltip(
+                `<div>
+                     UE_1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_25d832bf585a64ff0e7a4a734c758002.setIcon(icon_edb53497afb6fa56fd97040afa1f78b0);
+            
+    
+            var poly_line_8de3e607b83162136284d20ebaf9fd2a = L.polyline(
+                [[39.91086, 116.39989], [39.91072324410503, 116.4002121766987]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+        var popup_71106b884df80518f062627372334e4f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_495d0a579c94a93ccffd9309ea1aa77e = $(`<div id="html_495d0a579c94a93ccffd9309ea1aa77e" style="width: 100.0%; height: 100.0%;">UE_1 移动方向: 113°, 速度: 7m/s</div>`)[0];
+                popup_71106b884df80518f062627372334e4f.setContent(html_495d0a579c94a93ccffd9309ea1aa77e);
+            
+        
+
+        poly_line_8de3e607b83162136284d20ebaf9fd2a.bindPopup(popup_71106b884df80518f062627372334e4f)
+        ;
+
+        
+    
+    
+            var marker_2e109eda2d94a84b6dab2f81d0ec7abb = L.marker(
+                [39.90736, 116.39539],
+                {
+}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+            var icon_991f691540ae1260a44e15f4f880ab44 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "mobile",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9a9e2864ef0dffed4d19ecc2946987b2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5fec11c3cc82e98f06e605dccfd98d55 = $(`<div id="html_5fec11c3cc82e98f06e605dccfd98d55" style="width: 100.0%; height: 100.0%;">         <b>UE_2</b><br>         ID: 2<br>         业务类型: eMBB<br>         切片类型: eMBB<br>         优先级: 3<br>         发射功率: 19 dBm<br>         噪声系数: 6 dB<br>         天线数: 1<br>                      移动速度: 8 m/s<br>             移动方向: 30°<br>                      <br><b>距离基站:</b><br>- gNB_1: 238.7m (✓覆盖)<br>- gNB_2: 1173.9m (✗超出)<br>         </div>`)[0];
+                popup_9a9e2864ef0dffed4d19ecc2946987b2.setContent(html_5fec11c3cc82e98f06e605dccfd98d55);
+            
+        
+
+        marker_2e109eda2d94a84b6dab2f81d0ec7abb.bindPopup(popup_9a9e2864ef0dffed4d19ecc2946987b2)
+        ;
+
+        
+    
+    
+            marker_2e109eda2d94a84b6dab2f81d0ec7abb.bindTooltip(
+                `<div>
+                     UE_2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2e109eda2d94a84b6dab2f81d0ec7abb.setIcon(icon_991f691540ae1260a44e15f4f880ab44);
+            
+    
+            var poly_line_6bb0bc71abeeb08660a3dec3572a7c6a = L.polyline(
+                [[39.90736, 116.39539], [39.90770641016151, 116.39559000000001]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+        var popup_7d3726dd010921b6e9848629e6fe524a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_150e937dcba3164215a7951138ebb820 = $(`<div id="html_150e937dcba3164215a7951138ebb820" style="width: 100.0%; height: 100.0%;">UE_2 移动方向: 30°, 速度: 8m/s</div>`)[0];
+                popup_7d3726dd010921b6e9848629e6fe524a.setContent(html_150e937dcba3164215a7951138ebb820);
+            
+        
+
+        poly_line_6bb0bc71abeeb08660a3dec3572a7c6a.bindPopup(popup_7d3726dd010921b6e9848629e6fe524a)
+        ;
+
+        
+    
+    
+            var marker_c65df82909c9774d34cfb8741f557d9d = L.marker(
+                [39.91962, 116.39589],
+                {
+}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+            var icon_037a3fcdcfe4b9c89e1553c410993098 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "mobile",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5f56dd64b8fd9bced798dae0af694f86 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_32eb3b6134bcaf13fc69bbe8ce35103b = $(`<div id="html_32eb3b6134bcaf13fc69bbe8ce35103b" style="width: 100.0%; height: 100.0%;">         <b>UE_3</b><br>         ID: 3<br>         业务类型: eMBB<br>         切片类型: eMBB<br>         优先级: 3<br>         发射功率: 19 dBm<br>         噪声系数: 6 dB<br>         天线数: 1<br>                      移动速度: 8 m/s<br>             移动方向: 30°<br>                      <br><b>距离基站:</b><br>- gNB_1: 1201.6m (✗超出)<br>- gNB_2: 237.5m (✓覆盖)<br>         </div>`)[0];
+                popup_5f56dd64b8fd9bced798dae0af694f86.setContent(html_32eb3b6134bcaf13fc69bbe8ce35103b);
+            
+        
+
+        marker_c65df82909c9774d34cfb8741f557d9d.bindPopup(popup_5f56dd64b8fd9bced798dae0af694f86)
+        ;
+
+        
+    
+    
+            marker_c65df82909c9774d34cfb8741f557d9d.bindTooltip(
+                `<div>
+                     UE_3
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c65df82909c9774d34cfb8741f557d9d.setIcon(icon_037a3fcdcfe4b9c89e1553c410993098);
+            
+    
+            var poly_line_6a443afa035b4f43a7d8c9478494ff73 = L.polyline(
+                [[39.91962, 116.39589], [39.919966410161514, 116.39609]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+        var popup_ce49078210f816214b250701e33764aa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5d4077cb923a6d3032221daaf459fb24 = $(`<div id="html_5d4077cb923a6d3032221daaf459fb24" style="width: 100.0%; height: 100.0%;">UE_3 移动方向: 30°, 速度: 8m/s</div>`)[0];
+                popup_ce49078210f816214b250701e33764aa.setContent(html_5d4077cb923a6d3032221daaf459fb24);
+            
+        
+
+        poly_line_6a443afa035b4f43a7d8c9478494ff73.bindPopup(popup_ce49078210f816214b250701e33764aa)
+        ;
+
+        
+    
+    
+            var marker_b8cd5369bc0f923ae9a96cf8568dfd63 = L.marker(
+                [39.91582, 116.39919],
+                {
+}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+            var icon_1dc09a8c4ffc45a1519fd74b6dcd3e96 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "mobile",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9b8b3f3df57577c29a7373babbe630bd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b539ecf5592e5177ba4e2a013143426 = $(`<div id="html_3b539ecf5592e5177ba4e2a013143426" style="width: 100.0%; height: 100.0%;">         <b>UE_4</b><br>         ID: 4<br>         业务类型: eMBB<br>         切片类型: eMBB<br>         优先级: 3<br>         发射功率: 19 dBm<br>         噪声系数: 6 dB<br>         天线数: 1<br>                      移动速度: 7 m/s<br>             移动方向: 250°<br>                      <br><b>距离基站:</b><br>- gNB_1: 788.0m (✗超出)<br>- gNB_2: 270.2m (✓覆盖)<br>         </div>`)[0];
+                popup_9b8b3f3df57577c29a7373babbe630bd.setContent(html_3b539ecf5592e5177ba4e2a013143426);
+            
+        
+
+        marker_b8cd5369bc0f923ae9a96cf8568dfd63.bindPopup(popup_9b8b3f3df57577c29a7373babbe630bd)
+        ;
+
+        
+    
+    
+            marker_b8cd5369bc0f923ae9a96cf8568dfd63.bindTooltip(
+                `<div>
+                     UE_4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b8cd5369bc0f923ae9a96cf8568dfd63.setIcon(icon_1dc09a8c4ffc45a1519fd74b6dcd3e96);
+            
+    
+            var poly_line_76b31e07f4ae09b7b023d1adb7ee556a = L.polyline(
+                [[39.91582, 116.39919], [39.91570029294983, 116.39886110758273]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_17bb6e7d0569b3f94b0a2790a305ebfc);
+        
+    
+        var popup_66d98c4da7b8f566afc924a837a6ce13 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c08e6883c41120013571338df2c72024 = $(`<div id="html_c08e6883c41120013571338df2c72024" style="width: 100.0%; height: 100.0%;">UE_4 移动方向: 250°, 速度: 7m/s</div>`)[0];
+                popup_66d98c4da7b8f566afc924a837a6ce13.setContent(html_c08e6883c41120013571338df2c72024);
+            
+        
+
+        poly_line_76b31e07f4ae09b7b023d1adb7ee556a.bindPopup(popup_66d98c4da7b8f566afc924a837a6ce13)
+        ;
+
+        
+    
+</script>
+</html>
