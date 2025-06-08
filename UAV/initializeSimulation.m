@@ -17,7 +17,7 @@ prompt = {'基站数目:（个）',...
     '通信距离:（KM）',...
     '干扰抑制能力:（dB）'};
 dlg_title = '外部接入信息';
-dims = [1 50];
+dims = [1 50];   
 default_vals = {'1','64', '300', '10','5', '3','10', '300', '20',};
 input_vals = inputdlg(prompt, dlg_title, dims, default_vals);
 % 确保波束数量至少为3个
@@ -25,7 +25,7 @@ input_vals = inputdlg(prompt, dlg_title, dims, default_vals);
 if isempty(input_vals)
     % 用户取消了输入，返回空值
     bs_position = [];
-    bs_antennas = [];
+    bs_antennas = [];    
     beam_width = [];
     carrier_freq = [];
     wavelength = [];

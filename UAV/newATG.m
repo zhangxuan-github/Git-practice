@@ -12,7 +12,7 @@ clc;
 if isempty(bs_position)
     disp('用户取消了输入！');
     return;
-end
+end   
 
 %% 速度分布选择模块 - 先执行速度模式选择
 % 调用速度分布初始化函数
